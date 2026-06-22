@@ -1,0 +1,331 @@
+:root {
+    --bg-dark: #02060f;
+    --bg-card: rgba(6, 15, 33, 0.7);
+    --border-color: rgba(255, 255, 255, 0.05);
+    --border-hover: rgba(0, 180, 216, 0.3);
+    --text-primary: #ffffff;
+    --text-secondary: #8da2bb;
+    --accent-blue: #00d2ff;
+    --accent-cyan: #00b4d8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Ambient Backdrops */
+.bg-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.08) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+.top-left { top: -200px; left: -200px; }
+.center-right { top: 800px; right: -200px; }
+
+/* Navbar with Logo Image Space */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+/* Edit height here depending on your asset size */
+.nav-logo {
+    height: 32px; 
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-blue {
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.25);
+}
+
+.btn-blue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 180, 216, 0.4);
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-large {
+    padding: 14px 30px;
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    max-width: 850px;
+    margin: 100px auto 140px auto;
+    padding: 0 20px;
+}
+
+.announcement {
+    display: inline-block;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    color: var(--accent-blue);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+}
+
+.gradient-text {
+    background: linear-gradient(120deg, #00d2ff, #0077b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Main Grid Layout Containers */
+.section-container {
+    max-width: 1300px;
+    margin: 0 auto 120px auto;
+    padding: 0 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.view-all {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Polished Game Cards styling */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.game-card {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 30px rgba(0, 180, 216, 0.1);
+}
+
+.badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.game-meta h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.game-meta p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Feature Showcase Module */
+.center-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+.center-title h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.gradient-text-alt {
+    background: linear-gradient(120deg, #38ef7d, #11998e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.center-title p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Bottom CTA Layer */
+.cta-banner {
+    max-width: 1220px;
+    margin: 60px auto 0 auto;
+    background: radial-gradient(rgba(0, 180, 216, 0.12) 0%, rgba(0,0,0,0) 80%), var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.cta-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.cta-banner h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.cta-banner p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
